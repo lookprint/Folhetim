@@ -1,0 +1,38 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html:{class:"form-horizontal"}) do |f| %>
+  <%= devise_error_messages! %>
+  <!-- Email -->
+  <div class="form-group">
+    <%= f.label :email, class:"control-label col-lg-3" %>
+    <div class="col-lg-9">
+      <%= f.email_field :email, autofocus: true,class:"form-control",placeholder:"Email" %>
+    </div>
+  </div>
+  <!-- SENHA -->
+  <div class="form-group">
+    <%= f.label :password, class:"control-label col-lg-3" %>
+    <div class="col-lg-9">
+      <%= f.password_field :password ,class:"form-control",placeholder:"Senha" %>
+    </div>
+  </div>  
+  <!-- Remember me checkbox and sign in button -->
+  <% if devise_mapping.rememberable? -%>
+  <div class="form-group">
+   <div class="col-lg-9 col-lg-offset-3">
+    <div class="checkbox">
+      <label>
+        <%= f.check_box :remember_me %> Remember me
+      </label>
+    </div>
+   </div>
+  </div>
+  <% end -%>
+  <!--SUBMIT-->
+  <div class="col-lg-9 col-lg-offset-3">
+
+    <%= f.submit "Login",class:"btn btn-danger" %>
+    <button type="reset" class="btn btn-default">Cancelar</button>
+  </div>
+  <br />
+<% end %>
+
+

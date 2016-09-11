@@ -1,0 +1,2 @@
+module Admin::MuralsHelper
+end

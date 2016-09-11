@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+ <%=link_to "sair",destroy_admin_session_path, method: :delete %>
+<h1>Admin Murals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Text</th>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_murals.each do |admin_mural| %>
+      <tr>
+        <td><%= admin_mural.text %></td>
+        <td><%= admin_mural.title %></td>
+        <td><%= link_to 'Show', admin_mural %></td>
+        <td><%= link_to 'Edit', edit_admin_mural_path(admin_mural) %></td>
+        <td><%= link_to 'Destroy', admin_mural, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin Mural', new_admin_mural_path %>

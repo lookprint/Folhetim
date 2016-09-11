@@ -1,0 +1,144 @@
+
+<div class="matter">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+            <%= form_for(@admin_mural, html: {:class=>'form-horizontal validate'}) do |f| %>
+              <div class="widget">
+                <div class="widget-head">
+                  <div class="pull-left">Escrever</div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+                    <a href="#" class="wsettings"><i class="fa fa-wrench"></i></a>  
+                    <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget-content">
+                  <div class="padd">
+                    <%= f.text_field :title, class: 'validate[required] form-control col-lg-8', placeholder: 'Escreva o título' %>
+                    <div class="clearfix"></div>
+                  
+                    <div class="text-area">
+                        <%= f.text_area :text, class:'asdasdasd validate[required]' %>
+                    </div>
+
+                  </div>
+                  <div class="widget-foot">
+                    Tudo bem por aqui.
+                  </div>
+                </div>
+              </div>  
+
+              <div class="widget">
+                <div class="widget-head">
+                  <div class="pull-left">Outros detalhes</div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+                    <a href="#" class="wsettings"><i class="fa fa-wrench"></i></a>  
+                    <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget-content">
+                  <div class="padd">
+
+                    <h6>PŔEVIA</h6>
+                    <p>Fale um pouco da oferta</p>
+                    <div class="text-area">
+                         <%= f.text_area :subject, class:'form-control col-lg-12 validate[required]' %>
+
+                    </div>
+
+                    <hr />
+
+                    <h6>DEPARTAMENTO</h6>
+                    
+                        <%#= f.collection_select(:department_id, Department.all, :id, :name, {}, {:class=>'form-control validate[required]'})%>
+                    
+
+                  </div>
+                </div>
+              </div>  
+              
+            </div>
+
+          
+
+            <div class="col-md-4">
+
+              <div class="widget">
+                <div class="widget-head">
+                  <div class="pull-left">Detalhes</div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+                    <a href="#" class="wsettings"><i class="fa fa-wrench"></i></a>  
+                    <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="widget-content">
+                  <div class="padd">
+
+            
+                      <h6>Categorias</h6>
+                      <hr />
+                      <div class="check-box">
+							<label><input type='checkbox' value='check1' /> Aluno</label>
+						</div>
+						<div class="check-box">
+							<label><input type='checkbox' value='check2' /> Professor</label>
+						</div>
+						<div class="check-box">
+							<label><input type='checkbox' value='check3' /> Outros</label>
+						</div>
+
+                      <hr />
+                      <h6>Tags</h6>
+                      <hr />
+                      <input class="form-control col-lg-12" type="text" placeholder="Tags">
+
+                      <hr />
+					<div class="buttons">
+                      <button class="btn btn-primary">Salvar Rascunho</button> 
+                      <button class="btn btn-default">Publicar</button>
+                      <button class="btn btn-danger">Apagar</button>
+					</div>
+                  </div>
+                </div>
+              </div>  
+
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="widget">
+                  <div class="widget-head">
+                    <div class="pull-left">Selecione o edital</div>
+                    <div class="widget-icons pull-right">
+                      <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+                      <a href="#" class="wsettings"><i class="fa fa-wrench"></i></a>  
+                      <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget-content">
+                    <div class="padd">
+                      <form action="/file-upload" class="dropzone">
+                        <div class="fallback">
+                          <input name="file" type="file" multiple />
+                        </div>
+                      </form>
+                    </div>
+                  </div>    
+                </div>   
+            </div>
+          </div>
+
+
+
+		<% end %>
+
+          </div>
+        </div>
+		  </div>

@@ -1,0 +1,1 @@
+json.array! @admin_murals, partial: 'admin_murals/admin_mural', as: :admin_mural
