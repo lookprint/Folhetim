@@ -1,29 +1,66 @@
-<p id="notice"><%= notice %></p>
- <%=link_to "sair",destroy_admin_session_path, method: :delete %>
-<h1>Admin Murals</h1>
+<!--separa tabela-->
+<div class="matter">
+    <div class="container">
 
-<table>
-  <thead>
-    <tr>
-      <th>Text</th>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+                <div class="widget">
+                    <div class="widget-head">
+                        <div class="pull-left">Lista de Regionais  <div class="btn-group">
+                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">Ações <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><%= link_to 'Cadastrar Edital', new_admin_mural_path %></a></li>
+                                    <!-- <li class="divider"></li> -->
+                                    <!-- <li><a href="#">Separa</a></li> -->
+                                </ul>
+                            </div></div>
 
-  <tbody>
-    <% @admin_murals.each do |admin_mural| %>
-      <tr>
-        <td><%= admin_mural.text %></td>
-        <td><%= admin_mural.title %></td>
-        <td><%= link_to 'Show', admin_mural %></td>
-        <td><%= link_to 'Edit', edit_admin_mural_path(admin_mural) %></td>
-        <td><%= link_to 'Destroy', admin_mural, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                        <div class="widget-icons pull-right">
+                            <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+                            <a href="#" class="wsettings"><i class="fa fa-wrench"></i></a>  
+                            <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+                        </div>  
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="widget-content">
+                        <table id="datatable" class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#ID</th>
+                                    <th>Título</th>
+                                    <th>Departamento</th>
+                                    <th>Categoria</th>
+                                    <th>Status</th>
+                                    <th>Vizualizações</th>   
+                                    <th>Data de Postagem</th>      
+                                    <th>Editar</th>          
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% @admin_murals.each do |admin_mural| %>
+                                    <tr>
+                                        <td><%= admin_mural.id %></td>
+                                        <td><%= admin_mural.title %></td>
+                                        <td>Departamento</td>
+                                        <td><%= nomeCategoria(admin_mural.category) %></td>
+                                        <td><%= statusMural(admin_mural.status.to_i).html_safe %></td>
+                                        <td>0</td>
+                                        <td><%= post_date(admin_mural.created_at) %></td>
 
-<br>
+                                        <td>
+                                            <%= link_to '<button  class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i> </button>'.html_safe, edit_admin_mural_path(admin_mural)%>
 
-<%= link_to 'New Admin Mural', new_admin_mural_path %>
+
+                                             <%= link_to '<button class="btn btn-xs btn-danger"><i class="fa fa-times"></i> </button>'.html_safe, admin_mural, method: :delete, data: { confirm: 'Você tem certeza?' } %>
+
+                                        </td>
+                                    </tr>
+                                  <% end %>
+                            </tbody>
+                        </table>
+                        <div class="widget-foot">
+                            <br><br>
+                            <div class="clearfix"></div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

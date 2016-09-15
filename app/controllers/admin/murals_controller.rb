@@ -69,6 +69,6 @@ class Admin::MuralsController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_mural_params
-      params.require(:admin_mural).permit(:text, :title)
+      params.require(:admin_mural).permit(:text, :title, :subject, :admin_department_id, :edital, :tag, :category, :status)
     end
 end

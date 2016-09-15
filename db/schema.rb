@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160911032558) do
+ActiveRecord::Schema.define(version: 20160914203011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,9 +28,18 @@ ActiveRecord::Schema.define(version: 20160911032558) do
   create_table "admin_murals", force: :cascade do |t|
     t.string   "text"
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "subject"
+    t.integer  "admin_department_id"
+    t.string   "tag"
+    t.integer  "category"
+    t.string   "edital_file_name"
+    t.string   "edital_content_type"
+    t.integer  "edital_file_size"
+    t.datetime "edital_updated_at"
+    t.string   "status"
+    t.index ["admin_department_id"], name: "index_admin_murals_on_admin_department_id", using: :btree
   end
 
   create_table "admins", force: :cascade do |t|
@@ -51,4 +60,5 @@ ActiveRecord::Schema.define(version: 20160911032558) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "admin_murals", "admin_departments"
 end

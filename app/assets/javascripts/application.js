@@ -35,6 +35,8 @@
 
 //= require jquery.validationEngine-en
 //= require jquery.validationEngine
+
+//= require datatables/js/jquery.dataTables
 $(".validate").validationEngine();
 
 
